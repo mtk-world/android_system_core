@@ -49,6 +49,14 @@ LOCAL_SRC_FILES:= \
     ueventd_parser.cpp \
     watchdogd.cpp \
     vendor_init.cpp
+    
+ifeq ($(TARGET_BOARD_PLATFORM),mt6582)
+LOCAL_CFLAGS += -DMTK_MT6582
+endif
+
+ifeq ($(TARGET_BOARD_PLATFORM),mt6592)
+LOCAL_CFLAGS += -DMTK_MT6592
+endif
 
 ifneq ($(TARGET_IGNORE_RO_BOOT_REVISION),)
 LOCAL_CFLAGS += -DIGNORE_RO_BOOT_REVISION
